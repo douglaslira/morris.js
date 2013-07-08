@@ -865,6 +865,19 @@
           return label.remove();
         }
       };
+      
+      if(this.options.legend) {
+        var legendBox;
+    	  var labels = this.options.labels;
+    	  var elementID = this.options.element;
+    	  legendBox = "<div class='morris-box-legend'>\n";
+          for(var i in labels) {
+        	  legendBox += "<div class='morris-legend'><span class='morris-box' style='background-color:"+this.colorFor(0,i,'label')+";'></span> "+this.options.labels[i]+" </div>\n";
+          };
+          legendBox += "</div>";
+          $("#"+elementID).append(legendBox);      
+      };
+      
       if (this.options.parseTime) {
         if (this.data.length === 1 && this.options.xLabels === 'auto') {
           labels = [[this.data[0].label, this.data[0].x]];
